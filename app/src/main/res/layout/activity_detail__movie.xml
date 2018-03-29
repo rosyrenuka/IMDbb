@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000"
+    android:orientation="vertical"
+    tools:context="com.example.hp.imdb.Detail_Movie">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="25dp"
+
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="320dp"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/backdrop"
+                android:layout_width="match_parent"
+                android:layout_height="270dp" />
+
+            <TextView
+
+                android:id="@+id/moviename"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text=""
+                android:textColor="#FFFFFF"
+                android:textSize="25dp"
+
+                />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="20dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_weight="1"
+                android:id="@+id/posterpath"
+                android:layout_width="130dp"
+                android:layout_height="190dp" />
+
+            <TextView
+                android:layout_weight="3"
+                android:id="@+id/overview"
+                android:layout_width="200dp"
+                android:layout_marginBottom="10dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:scrollbars="vertical"
+                android:text=""
+                android:textColor="#FFFFFF"
+                android:textSize="14dp" />
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="27dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="15dp"
+                android:text="STORY  LINE"
+                android:textAppearance="@color/colorPrimaryDark"
+                android:textColor="#FFFFFF"
+                android:textSize="27dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginTop="15dp"
+                android:text="Tagline"
+                android:textColor="#FFFFFF"
+                android:textSize="21dp" />
+
+            <TextView
+                android:id="@+id/tagline"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginTop="3dp"
+                android:text="enter tagline text"
+                android:textColor="#FFFFFF"
+                android:textSize="16dp" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_marginTop="30dp"
+                android:orientation="horizontal">
+
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:scrollbars="horizontal"
+                    android:visibility="visible">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/action"
+                            android:layout_width="75dp"
+                            android:layout_height="40dp"
+                            android:background="#808080"
+                            android:text="ACTION"
+                            android:textColor="#FFFFFF"
+                            android:textSize="13dp" />
+
+                        <Button
+                            android:id="@+id/adventure"
+                            android:layout_width="wrap_content"
+                            android:layout_height="40dp"
+                            android:layout_marginLeft="4dp"
+                            android:background="#808080"
+                            android:text="ADVENTURE"
+                            android:textColor="#FFFFFF"
+                            android:textSize="13dp" />
+
+                        <Button
+                            android:id="@+id/comedy"
+                            android:layout_width="76dp"
+                            android:layout_height="40dp"
+                            android:layout_marginLeft="4dp"
+                            android:background="#808080"
+                            android:text="COMEDY"
+                            android:textColor="#FFFFFF"
+                            android:textSize="13dp" />
+
+                        <Button
+                            android:id="@+id/fantasy"
+                            android:layout_width="76dp"
+                            android:layout_height="40dp"
+                            android:layout_marginLeft="3dp"
+                            android:background="#808080"
+                            android:text="FANTASY"
+                            android:textColor="#FFFFFF"
+                            android:textSize="13dp" />
+
+                    </LinearLayout>
+                </ScrollView>
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="550dp"
+
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="30dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="2dp"
+                android:layout_marginTop="10dp"
+                android:text="Details"
+                android:textAppearance="@color/colorPrimaryDark"
+                android:textColor="#FFFFFF"
+                android:textSize="28dp" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="170dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="7dp"
+                    android:text="Release Date"
+                    android:textColor="#FFFFFF"
+                    android:textSize="19dp" />
+
+                <TextView
+                    android:id="@+id/date"
+                    android:layout_width="150dp"
+                    android:layout_height="40dp"
+                    android:text="enter released date"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18dp" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="57dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="170dp"
+                    android:layout_height="40dp"
+                    android:text="Language"
+                    android:textColor="#FFFFFF"
+                    android:textSize="19dp" />
+
+                <TextView
+                    android:id="@+id/language"
+                    android:layout_width="150dp"
+                    android:layout_height="40dp"
+                    android:text="enter language"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18dp" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="57dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="170dp"
+                    android:layout_height="40dp"
+                    android:text="Budget"
+                    android:textColor="#FFFFFF"
+                    android:textSize="19dp" />
+
+                <TextView
+                    android:id="@+id/budget"
+                    android:layout_width="150dp"
+                    android:layout_height="40dp"
+                    android:text="enter budget"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18dp" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="57dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="170dp"
+                    android:layout_height="40dp"
+                    android:text="Adult"
+                    android:textColor="#FFFFFF"
+                    android:textSize="19dp" />
+
+                <TextView
+                    android:id="@+id/adult"
+                    android:layout_width="150dp"
+                    android:layout_height="40dp"
+                    android:text="enter budget"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18dp" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="57dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="170dp"
+                    android:layout_height="40dp"
+                    android:text="Status"
+                    android:textColor="#FFFFFF"
+                    android:textSize="19dp" />
+
+                <TextView
+                    android:id="@+id/status"
+                    android:layout_width="150dp"
+                    android:layout_height="40dp"
+                    android:text="enter budget"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18dp" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="57dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="170dp"
+                    android:layout_height="40dp"
+                    android:text="Vote"
+                    android:textColor="#FFFFFF"
+                    android:textSize="19dp" />
+
+                <TextView
+                    android:id="@+id/vote"
+                    android:layout_width="130dp"
+                    android:layout_height="40dp"
+                    android:text="enter budget"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18dp" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="170dp"
+                    android:layout_height="40dp"
+                    android:text="Video"
+                    android:textColor="#FFFFFF"
+                    android:textSize="19dp" />
+
+                <TextView
+                    android:id="@+id/video"
+                    android:layout_width="130dp"
+                    android:layout_height="40dp"
+                    android:text="enter budget"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18dp" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</android.support.v4.widget.NestedScrollView>
