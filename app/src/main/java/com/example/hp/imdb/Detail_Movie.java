@@ -3,6 +3,7 @@ package com.example.hp.imdb;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -50,6 +51,7 @@ public class Detail_Movie extends AppCompatActivity {
         Tvideo=findViewById(R.id.video);
         Tmoviename=findViewById(R.id.moviename);
         Toverview=findViewById(R.id.overview);
+        Toverview.setMovementMethod(new ScrollingMovementMethod());
         Ttagline=findViewById(R.id.tagline);
         Tbudget=findViewById(R.id.budget);
 
