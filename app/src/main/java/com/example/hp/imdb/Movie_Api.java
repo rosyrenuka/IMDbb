@@ -18,10 +18,15 @@ import retrofit2.http.Query;
      Call<PopularMovies> getPopularMovies(@Path("type") String type);
     // Call<Movie> getMovie();
 
-
-
-
     @GET("{ID}?api_key=240b752ab9c0cb8011560c2f8338adc1")
     Call<Movie> getMovieDetails(@Path("ID") Long idMovie);
+
+
+    @GET("{ID}/images?api_key=240b752ab9c0cb8011560c2f8338adc1")
+    Call<Image> getImagesOfMovie(@Path("ID") Long idMovie);
+
+
+    @GET("{ID}/credits?api_key=240b752ab9c0cb8011560c2f8338adc1")
+      Call<TopCast> getTopCast(@Path("ID") Long idMovie);
 
    }

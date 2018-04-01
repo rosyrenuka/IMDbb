@@ -1,14 +1,27 @@
 package com.example.hp.imdb;
 
+import android.app.ActionBar;
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.DividerItemDecoration;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.text.method.ScrollingMovementMethod;
+import android.util.Log;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
+
+import java.util.ArrayList;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -20,6 +33,7 @@ public class Detail_Movie extends AppCompatActivity {
 
     TextView Tmoviename;
     TextView Toverview;
+
     TextView Ttagline;
     TextView Tbudget;
      TextView Tadult;
@@ -29,11 +43,24 @@ public class Detail_Movie extends AppCompatActivity {
      TextView Tlanguage;
      TextView Trelease;
 
-
        ImageView TbackdropPath;
        ImageView TposterPath;
+       Button load;
 
        long idMovie;
+       Context context;
+
+       Retrofit retrofit;
+    Movie_Api movie_api;
+
+       ArrayList<Image.backdrops> List = new ArrayList<>();
+       ArrayList<TopCast.cast> ListCast = new ArrayList<>();
+
+       RecyclerView recyclerview;
+       UserRecyclerImageAdapter adapter;
+
+        RecyclerView castRecycler;
+        UserCastRecyclerAdapter castRecyclerAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +69,8 @@ public class Detail_Movie extends AppCompatActivity {
 
         Intent intent=getIntent();
         idMovie=intent.getLongExtra("ID",0);
+
+        castRecycler=findViewById(R.id.castRecycler);
 
         Tadult=findViewById(R.id.adult);
         Tstatus=findViewById(R.id.status);
@@ -54,24 +83,60 @@ public class Detail_Movie extends AppCompatActivity {
         Toverview.setMovementMethod(new ScrollingMovementMethod());
         Ttagline=findViewById(R.id.tagline);
         Tbudget=findViewById(R.id.budget);
+       load=findViewById(R.id.loadMore);
 
         TbackdropPath=findViewById(R.id.backdrop);
         TposterPath=findViewById(R.id.posterpath);
 
+        load.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) Toverview.getLayoutParams();
+                layoutParams.height = 600;
+                Toverview.setLayoutParams(layoutParams);
+                Toast.makeText(Detail_Movie.this," load more clicked",Toast.LENGTH_SHORT).show();
+                load.setText("");
+            }
+        });
+
+        recyclerview=findViewById(R.id.imageList);
+
+        adapter = new UserRecyclerImageAdapter(Detail_Movie.this , List);   // if contex is udes error occured
+        recyclerview.setAdapter(adapter);
+        recyclerview.setItemAnimator(new DefaultItemAnimator());
+        recyclerview.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false));
+        recyclerview.addItemDecoration(new DividerItemDecoration(this , DividerItemDecoration.HORIZONTAL));
+
+
+        castRecyclerAdapter = new UserCastRecyclerAdapter(Detail_Movie.this,ListCast);
+        castRecycler.setAdapter(castRecyclerAdapter);
+        castRecycler.setItemAnimator(new DefaultItemAnimator());
+        castRecycler.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false));
+        castRecycler.addItemDecoration(new DividerItemDecoration(this,DividerItemDecoration.HORIZONTAL));
+
+        retrofitDeclaration();
+    }
+
+
+    private void retrofitDeclaration() {
+
+
+        retrofit = new Retrofit.Builder().baseUrl("https://api.themoviedb.org/3/movie/")
+                .addConverterFactory(GsonConverterFactory.create()).build();
+
+        movie_api = retrofit.create(Movie_Api.class);
+
         fetchDetailsOfMOVIES();
+        fetchImagesOfMovie();
+        fetchCastDetails();
+
     }
 
     private void fetchDetailsOfMOVIES() {
 
-        Retrofit retrofit = new Retrofit.Builder().baseUrl("https://api.themoviedb.org/3/movie/")
-                              .addConverterFactory(GsonConverterFactory.create()).build();
-
-
-           Movie_Api movie_api = retrofit.create(Movie_Api.class);
-
         Call<Movie> call = movie_api.getMovieDetails(idMovie);
-
-                 call.enqueue(new Callback<Movie>() {
+        call.enqueue(new Callback<Movie>() {
                      @Override
                      public void onResponse(Call<Movie> call, Response<Movie> response) {
 
@@ -125,9 +190,71 @@ public class Detail_Movie extends AppCompatActivity {
 
                          Toast.makeText(Detail_Movie.this, "FAILED TO LOAD", Toast.LENGTH_SHORT).show();
                      }
-                 });
 
+                 });
     }
 
+    private void fetchImagesOfMovie() {
 
+        // retrofit already declared in common function
+        Call<Image> call = movie_api.getImagesOfMovie(idMovie);
+   call.enqueue(new Callback<Image>() {
+       @Override
+       public void onResponse(Call<Image> call, Response<Image> response) {
+
+       Image object = response.body();
+       if(object!=null) {
+           ArrayList<Image.backdrops> list = object.getBackdrops();
+           if(list!=null)
+           {
+               List.clear();
+               List.addAll(list);
+               adapter.notifyDataSetChanged();
+               Toast.makeText(Detail_Movie.this,"IMAGES downloaded",Toast.LENGTH_SHORT).show();
+           }
+           else{
+               Toast.makeText(Detail_Movie.this,"NULL !!!" , Toast.LENGTH_SHORT).show();
+           }
+         }
+       }
+
+       @Override
+       public void onFailure(Call<Image> call, Throwable t) {
+           Toast.makeText(Detail_Movie.this,"failed to load IMAGES",Toast.LENGTH_LONG).show();
+       }
+   });
+    }
+
+    private void fetchCastDetails() {
+
+        Call<TopCast> call = movie_api.getTopCast(idMovie);
+        call.enqueue(new Callback<TopCast>() {
+            @Override
+            public void onResponse(Call<TopCast> call, Response<TopCast> response) {
+
+                TopCast object1 = response.body();
+                if(object1!=null)
+                {
+                    ArrayList<TopCast.cast> castlist = object1.getList();
+                    if(castlist!=null)
+                    {
+                        ListCast.clear();
+                        ListCast.addAll(castlist);
+                        Log.d("TAG",response.body().cast.get(2).getCharacter());
+                        castRecyclerAdapter.notifyDataSetChanged();
+                        Toast.makeText(Detail_Movie.this, "CAST downloaded", Toast.LENGTH_SHORT).show();
+                    }
+                    else
+                    {
+                        Toast.makeText(Detail_Movie.this, "NULL !!!", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
+            @Override
+            public void onFailure(Call<TopCast> call, Throwable t) {
+
+                Toast.makeText(Detail_Movie.this,"failed to download",Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
 }

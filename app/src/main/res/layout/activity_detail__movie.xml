@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -8,17 +9,17 @@
     android:orientation="vertical"
     tools:context="com.example.hp.imdb.Detail_Movie">
 
+<!--main layout-->
 
-    <LinearLayout
+    <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="25dp"
-
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="1dp"
         android:orientation="vertical">
 
+     <!--part 1-->
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -43,39 +44,90 @@
 
         </LinearLayout>
 
+             <!--2nd layout-->
 
         <LinearLayout
+            android:id="@+id/linearLayout"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="350dp"
             android:layout_marginTop="20dp"
-            android:layout_weight="1"
             android:orientation="horizontal">
 
             <ImageView
-                android:layout_weight="1"
                 android:id="@+id/posterpath"
-                android:layout_width="130dp"
-                android:layout_height="190dp" />
+                android:layout_width="180dp"
+                android:layout_height="260dp"
+                android:layout_weight="1"/>
 
-            <TextView
+
+            <LinearLayout
+                android:layout_width="260dp"
+                android:layout_height="350dp"
                 android:layout_weight="3"
-                android:id="@+id/overview"
-                android:layout_width="200dp"
-                android:layout_marginBottom="10dp"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="10dp"
-                android:scrollbars="vertical"
-                android:text=""
-                android:textColor="#FFFFFF"
-                android:textSize="14dp" />
+                android:layout_marginTop="12dp"
+                android:orientation="vertical">
 
+                <TextView
+                    android:id="@+id/overview"
+                    android:layout_width="match_parent"
+                    android:layout_height="170dp"
+                    android:layout_marginLeft="5dp"
+                    android:scrollbars="vertical"
+                    android:text="overview"
+                    android:textColor="#FFFFFF"
+                    android:textSize="14dp" />
+
+
+                <Button
+                    android:id="@+id/loadMore"
+                    android:layout_width="100dp"
+                    android:layout_height="35dp"
+                    android:background="#000000"
+                    android:layout_marginLeft="15dp"
+                    android:text="Load more ...."
+                    android:textColor="#ee82ee"
+                    android:textSize="10dp" />
+
+            </LinearLayout>
 
         </LinearLayout>
+
+        <!--3rd layout-->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="370dp"
+            android:layout_marginTop="1dp"
+            android:orientation="vertical"
+            android:background="#000">
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:text="Top-Billed Cast"
+                android:textSize="24dp"
+                android:textColor="#ffff"
+                />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/castRecycler"
+                android:layout_width="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+            </android.support.v7.widget.RecyclerView>
+
+        </LinearLayout>
+
+        <!--3rd layout-->
 
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="500dp"
             android:layout_marginTop="27dp"
             android:orientation="vertical">
 
@@ -83,17 +135,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_marginTop="15dp"
-                android:text="STORY  LINE"
+                android:text="Storyline"
                 android:textAppearance="@color/colorPrimaryDark"
                 android:textColor="#FFFFFF"
-                android:textSize="27dp" />
+                android:textSize="24dp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
                 android:layout_marginTop="15dp"
                 android:text="Tagline"
-                android:textColor="#FFFFFF"
+                android:textColor="#EF5350"
                 android:textSize="21dp" />
 
             <TextView
@@ -102,16 +154,14 @@
                 android:layout_height="30dp"
                 android:layout_marginTop="3dp"
                 android:text="enter tagline text"
-                android:textColor="#FFFFFF"
+                android:textColor="#FF4081"
                 android:textSize="16dp" />
-
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
                 android:layout_marginTop="30dp"
                 android:orientation="horizontal">
-
 
                 <ScrollView
                     android:layout_width="match_parent"
@@ -168,60 +218,70 @@
             </LinearLayout>
         </LinearLayout>
 
+        <!--recycler view in linear layout-->
+
+        <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="300dp"-->
+            <!--android:background="@color/colorAccent"-->
+            <!--android:layout_marginTop="110dp"-->
+            <!--android:orientation="horizontal">-->
+
+            <!--<TextView-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="20dp"-->
+                <!--android:text="Images"-->
+                <!--android:textSize="10dp"-->
+                <!--android:textColor="#ffff"/>-->
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/imageList"
+                android:layout_width="wrap_content"
+                android:layout_height="200dp"
+                android:background="@color/colorPrimaryDark"
+                android:orientation="horizontal"></android.support.v7.widget.RecyclerView>
+
+        </android.support.constraint.ConstraintLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="550dp"
-
+           android:layout_marginTop="100dp"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="30dp"
             android:orientation="vertical">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginLeft="2dp"
-                android:layout_marginTop="10dp"
                 android:text="Details"
                 android:textAppearance="@color/colorPrimaryDark"
                 android:textColor="#FFFFFF"
                 android:textSize="28dp" />
 
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="170dp"
+                  <TextView
+                    android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:layout_marginTop="7dp"
                     android:text="Release Date"
-                    android:textColor="#FFFFFF"
-                    android:textSize="19dp" />
+                    android:textColor="#00ffff"
+                    android:textSize="17dp" />
 
                 <TextView
                     android:id="@+id/date"
-                    android:layout_width="150dp"
+                    android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:text="enter released date"
                     android:textColor="#FFFFFF"
-                    android:textSize="18dp" />
-            </LinearLayout>
+                    android:textSize="13dp" />
 
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="57dp"
-                android:orientation="horizontal">
-
-                <TextView
+               <TextView
                     android:layout_width="170dp"
                     android:layout_height="40dp"
                     android:text="Language"
-                    android:textColor="#FFFFFF"
-                    android:textSize="19dp" />
+                    android:layout_marginTop="2dp"
+                    android:textColor="#00ffff"
+                    android:textSize="17dp" />
 
                 <TextView
                     android:id="@+id/language"
@@ -229,22 +289,16 @@
                     android:layout_height="40dp"
                     android:text="enter language"
                     android:textColor="#FFFFFF"
-                    android:textSize="18dp" />
+                    android:textSize="13dp" />
 
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="57dp"
-                android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="170dp"
                     android:layout_height="40dp"
                     android:text="Budget"
-                    android:textColor="#FFFFFF"
-                    android:textSize="19dp" />
+                    android:layout_marginTop="2dp"
+                    android:textColor="#00ffff"
+                    android:textSize="17dp" />
 
                 <TextView
                     android:id="@+id/budget"
@@ -252,22 +306,16 @@
                     android:layout_height="40dp"
                     android:text="enter budget"
                     android:textColor="#FFFFFF"
-                    android:textSize="18dp" />
+                    android:textSize="13dp" />
 
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="57dp"
-                android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="170dp"
                     android:layout_height="40dp"
+                    android:layout_marginTop="2dp"
                     android:text="Adult"
-                    android:textColor="#FFFFFF"
-                    android:textSize="19dp" />
+                    android:textColor="#00ffff"
+                    android:textSize="17dp" />
 
                 <TextView
                     android:id="@+id/adult"
@@ -275,21 +323,16 @@
                     android:layout_height="40dp"
                     android:text="enter budget"
                     android:textColor="#FFFFFF"
-                    android:textSize="18dp" />
-            </LinearLayout>
+                    android:textSize="13dp" />
 
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="57dp"
-                android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="170dp"
                     android:layout_height="40dp"
                     android:text="Status"
-                    android:textColor="#FFFFFF"
-                    android:textSize="19dp" />
+                    android:layout_marginTop="2dp"
+                    android:textColor="#00ffff"
+                    android:textSize="17dp" />
 
                 <TextView
                     android:id="@+id/status"
@@ -297,22 +340,16 @@
                     android:layout_height="40dp"
                     android:text="enter budget"
                     android:textColor="#FFFFFF"
-                    android:textSize="18dp" />
+                    android:textSize="13dp" />
 
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="57dp"
-                android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="170dp"
                     android:layout_height="40dp"
                     android:text="Vote"
-                    android:textColor="#FFFFFF"
-                    android:textSize="19dp" />
+                    android:layout_marginTop="2dp"
+                    android:textColor="#00ffff"
+                    android:textSize="17dp" />
 
                 <TextView
                     android:id="@+id/vote"
@@ -320,22 +357,16 @@
                     android:layout_height="40dp"
                     android:text="enter budget"
                     android:textColor="#FFFFFF"
-                    android:textSize="18dp" />
+                    android:textSize="13dp" />
 
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="170dp"
                     android:layout_height="40dp"
                     android:text="Video"
-                    android:textColor="#FFFFFF"
-                    android:textSize="19dp" />
+                    android:layout_marginTop="2dp"
+                    android:textColor="#00ffff"
+                    android:textSize="17dp" />
 
                 <TextView
                     android:id="@+id/video"
@@ -343,12 +374,9 @@
                     android:layout_height="40dp"
                     android:text="enter budget"
                     android:textColor="#FFFFFF"
-                    android:textSize="18dp" />
-            </LinearLayout>
+                    android:textSize="13dp" />
 
         </LinearLayout>
-
-    </LinearLayout>
 
 
 </android.support.v4.widget.NestedScrollView>

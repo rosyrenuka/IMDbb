@@ -12,12 +12,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ProgressBar
-        android:layout_width="22dp"
-        android:layout_height="22dp"
+    <me.zhanghai.android.materialprogressbar.MaterialProgressBar
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:indeterminate="true"
         android:id="@+id/pg"
-        android:visibility="gone"
-        android:layout_gravity="center"/>
+        app:mpb_progressStyle="horizontal"
+        style="@style/Widget.MaterialProgressBar.ProgressBar.Horizontal" />
 
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"

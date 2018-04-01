@@ -9,8 +9,7 @@
    * Created by HP on 25-03-2018.
    */
 
-
-  public class Movie {
+   public class Movie {
 
       private class Genre
        {
@@ -22,8 +21,7 @@
             this.id = id;
         }
 
-
-        public String getName() {
+           public String getName() {
             return name;
         }
 
