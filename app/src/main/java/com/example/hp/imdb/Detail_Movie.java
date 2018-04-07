@@ -197,6 +197,7 @@ public class Detail_Movie extends AppCompatActivity {
     private void fetchImagesOfMovie() {
 
         // retrofit already declared in common function
+
         Call<Image> call = movie_api.getImagesOfMovie(idMovie);
    call.enqueue(new Callback<Image>() {
        @Override

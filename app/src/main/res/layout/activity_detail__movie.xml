@@ -11,12 +11,13 @@
 
 <!--main layout-->
 
-    <android.support.constraint.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginTop="1dp"
+        android:layout_marginBottom="1dp"
         android:orientation="vertical">
 
      <!--part 1-->
@@ -44,7 +45,8 @@
 
         </LinearLayout>
 
-             <!--2nd layout-->
+
+          <!--2nd layout-->
 
         <LinearLayout
             android:id="@+id/linearLayout"
@@ -92,6 +94,7 @@
 
         </LinearLayout>
 
+
         <!--3rd layout-->
 
         <LinearLayout
@@ -122,12 +125,15 @@
 
         </LinearLayout>
 
-        <!--3rd layout-->
 
+
+
+
+       <!--4TH LAYOUT(TAGLINE)-->
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="500dp"
+            android:layout_height="150dp"
             android:layout_marginTop="27dp"
             android:orientation="vertical">
 
@@ -157,96 +163,42 @@
                 android:textColor="#FF4081"
                 android:textSize="16dp" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:layout_marginTop="30dp"
-                android:orientation="horizontal">
-
-                <ScrollView
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:scrollbars="horizontal"
-                    android:visibility="visible">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:orientation="horizontal">
-
-                        <Button
-                            android:id="@+id/action"
-                            android:layout_width="75dp"
-                            android:layout_height="40dp"
-                            android:background="#808080"
-                            android:text="ACTION"
-                            android:textColor="#FFFFFF"
-                            android:textSize="13dp" />
-
-                        <Button
-                            android:id="@+id/adventure"
-                            android:layout_width="wrap_content"
-                            android:layout_height="40dp"
-                            android:layout_marginLeft="4dp"
-                            android:background="#808080"
-                            android:text="ADVENTURE"
-                            android:textColor="#FFFFFF"
-                            android:textSize="13dp" />
-
-                        <Button
-                            android:id="@+id/comedy"
-                            android:layout_width="76dp"
-                            android:layout_height="40dp"
-                            android:layout_marginLeft="4dp"
-                            android:background="#808080"
-                            android:text="COMEDY"
-                            android:textColor="#FFFFFF"
-                            android:textSize="13dp" />
-
-                        <Button
-                            android:id="@+id/fantasy"
-                            android:layout_width="76dp"
-                            android:layout_height="40dp"
-                            android:layout_marginLeft="3dp"
-                            android:background="#808080"
-                            android:text="FANTASY"
-                            android:textColor="#FFFFFF"
-                            android:textSize="13dp" />
-
-                    </LinearLayout>
-                </ScrollView>
             </LinearLayout>
-        </LinearLayout>
+
 
         <!--recycler view in linear layout-->
 
-        <!--<LinearLayout-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="300dp"-->
-            <!--android:background="@color/colorAccent"-->
-            <!--android:layout_marginTop="110dp"-->
-            <!--android:orientation="horizontal">-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="320dp"
+            android:background="#000"
+            android:layout_marginTop="40dp"
+            android:orientation="vertical">
 
-            <!--<TextView-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="20dp"-->
-                <!--android:text="Images"-->
-                <!--android:textSize="10dp"-->
-                <!--android:textColor="#ffff"/>-->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="Images"
+                android:textSize="23dp"
+                android:textColor="#ffff"/>
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/imageList"
                 android:layout_width="wrap_content"
-                android:layout_height="200dp"
-                android:background="@color/colorPrimaryDark"
+                android:layout_height="wrap_content"
                 android:orientation="horizontal"></android.support.v7.widget.RecyclerView>
 
-        </android.support.constraint.ConstraintLayout>
+        </LinearLayout>
+
+
+
+        <!--DETAILS LAYOUT-->
+        <!---->
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="550dp"
-           android:layout_marginTop="100dp"
+            android:layout_marginTop="20dp"
             android:layout_marginLeft="10dp"
             android:orientation="vertical">
 
@@ -259,124 +211,126 @@
                 android:textColor="#FFFFFF"
                 android:textSize="28dp" />
 
-                  <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:layout_marginTop="7dp"
-                    android:text="Release Date"
-                    android:textColor="#00ffff"
-                    android:textSize="17dp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="7dp"
+                android:text="Release Date"
+                android:textColor="#00ffff"
+                android:textSize="17dp" />
 
-                <TextView
-                    android:id="@+id/date"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:text="enter released date"
-                    android:textColor="#FFFFFF"
-                    android:textSize="13dp" />
+            <TextView
+                android:id="@+id/date"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="enter released date"
+                android:textColor="#FFFFFF"
+                android:textSize="13dp" />
 
-               <TextView
-                    android:layout_width="170dp"
-                    android:layout_height="40dp"
-                    android:text="Language"
-                    android:layout_marginTop="2dp"
-                    android:textColor="#00ffff"
-                    android:textSize="17dp" />
+            <TextView
+                android:layout_width="170dp"
+                android:layout_height="40dp"
+                android:text="Language"
+                android:layout_marginTop="2dp"
+                android:textColor="#00ffff"
+                android:textSize="17dp" />
 
-                <TextView
-                    android:id="@+id/language"
-                    android:layout_width="150dp"
-                    android:layout_height="40dp"
-                    android:text="enter language"
-                    android:textColor="#FFFFFF"
-                    android:textSize="13dp" />
-
-
-                <TextView
-                    android:layout_width="170dp"
-                    android:layout_height="40dp"
-                    android:text="Budget"
-                    android:layout_marginTop="2dp"
-                    android:textColor="#00ffff"
-                    android:textSize="17dp" />
-
-                <TextView
-                    android:id="@+id/budget"
-                    android:layout_width="150dp"
-                    android:layout_height="40dp"
-                    android:text="enter budget"
-                    android:textColor="#FFFFFF"
-                    android:textSize="13dp" />
+            <TextView
+                android:id="@+id/language"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:text="enter language"
+                android:textColor="#FFFFFF"
+                android:textSize="13dp" />
 
 
-                <TextView
-                    android:layout_width="170dp"
-                    android:layout_height="40dp"
-                    android:layout_marginTop="2dp"
-                    android:text="Adult"
-                    android:textColor="#00ffff"
-                    android:textSize="17dp" />
+            <TextView
+                android:layout_width="170dp"
+                android:layout_height="40dp"
+                android:text="Budget"
+                android:layout_marginTop="2dp"
+                android:textColor="#00ffff"
+                android:textSize="17dp" />
 
-                <TextView
-                    android:id="@+id/adult"
-                    android:layout_width="150dp"
-                    android:layout_height="40dp"
-                    android:text="enter budget"
-                    android:textColor="#FFFFFF"
-                    android:textSize="13dp" />
-
-
-                <TextView
-                    android:layout_width="170dp"
-                    android:layout_height="40dp"
-                    android:text="Status"
-                    android:layout_marginTop="2dp"
-                    android:textColor="#00ffff"
-                    android:textSize="17dp" />
-
-                <TextView
-                    android:id="@+id/status"
-                    android:layout_width="150dp"
-                    android:layout_height="40dp"
-                    android:text="enter budget"
-                    android:textColor="#FFFFFF"
-                    android:textSize="13dp" />
+            <TextView
+                android:id="@+id/budget"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:text="enter budget"
+                android:textColor="#FFFFFF"
+                android:textSize="13dp" />
 
 
-                <TextView
-                    android:layout_width="170dp"
-                    android:layout_height="40dp"
-                    android:text="Vote"
-                    android:layout_marginTop="2dp"
-                    android:textColor="#00ffff"
-                    android:textSize="17dp" />
+            <TextView
+                android:layout_width="170dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="2dp"
+                android:text="Adult"
+                android:textColor="#00ffff"
+                android:textSize="17dp" />
 
-                <TextView
-                    android:id="@+id/vote"
-                    android:layout_width="130dp"
-                    android:layout_height="40dp"
-                    android:text="enter budget"
-                    android:textColor="#FFFFFF"
-                    android:textSize="13dp" />
+            <TextView
+                android:id="@+id/adult"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:text="enter budget"
+                android:textColor="#FFFFFF"
+                android:textSize="13dp" />
 
 
-                <TextView
-                    android:layout_width="170dp"
-                    android:layout_height="40dp"
-                    android:text="Video"
-                    android:layout_marginTop="2dp"
-                    android:textColor="#00ffff"
-                    android:textSize="17dp" />
+            <TextView
+                android:layout_width="170dp"
+                android:layout_height="40dp"
+                android:text="Status"
+                android:layout_marginTop="2dp"
+                android:textColor="#00ffff"
+                android:textSize="17dp" />
 
-                <TextView
-                    android:id="@+id/video"
-                    android:layout_width="130dp"
-                    android:layout_height="40dp"
-                    android:text="enter budget"
-                    android:textColor="#FFFFFF"
-                    android:textSize="13dp" />
+            <TextView
+                android:id="@+id/status"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:text="enter budget"
+                android:textColor="#FFFFFF"
+                android:textSize="13dp" />
+
+
+            <TextView
+                android:layout_width="170dp"
+                android:layout_height="40dp"
+                android:text="Vote"
+                android:layout_marginTop="2dp"
+                android:textColor="#00ffff"
+                android:textSize="17dp" />
+
+            <TextView
+                android:id="@+id/vote"
+                android:layout_width="130dp"
+                android:layout_height="40dp"
+                android:text="enter budget"
+                android:textColor="#FFFFFF"
+                android:textSize="13dp" />
+
+
+            <TextView
+                android:layout_width="170dp"
+                android:layout_height="40dp"
+                android:text="Video"
+                android:layout_marginTop="2dp"
+                android:textColor="#00ffff"
+                android:textSize="17dp" />
+
+            <TextView
+                android:id="@+id/video"
+                android:layout_width="130dp"
+                android:layout_height="40dp"
+                android:text="enter budget"
+                android:textColor="#FFFFFF"
+                android:textSize="13dp" />
 
         </LinearLayout>
+
+    </LinearLayout>
 
 
 </android.support.v4.widget.NestedScrollView>

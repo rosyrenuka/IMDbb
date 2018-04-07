@@ -10,7 +10,6 @@
         android:layout_width="230dp"
         android:layout_height="220dp"
         android:background="#000"
-        android:layout_marginLeft="0dp"
         android:id="@+id/castImage"
         />
 
