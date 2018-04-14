@@ -25,14 +25,11 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class All_Movie extends AppCompatActivity implements ListFragment.UserSelectedCallBack {
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all__movie);
-
         getLists();
-
     }
 
     private void getLists() {

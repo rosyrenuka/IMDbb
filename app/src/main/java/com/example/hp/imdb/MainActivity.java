@@ -11,6 +11,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Intent data = getIntent();
+
+
         Intent intent=new Intent(this,All_Movie.class);
         startActivity(intent);
 

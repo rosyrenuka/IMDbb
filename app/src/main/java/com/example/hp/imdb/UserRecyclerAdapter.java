@@ -48,7 +48,7 @@
 
      Movie detail = list.get(position);
 
-     holder.textview.setText(detail.getMovieName());
+    // holder.textview.setText(detail.getMovieName());
 
 
      holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -70,13 +70,13 @@
     public class UserViewHolder extends RecyclerView.ViewHolder {
 
         View itemView;
-        TextView textview;
+       // TextView textview;
         ImageView imageview;
 
         public UserViewHolder(View itemView) {
 
             super(itemView);
-            textview = itemView.findViewById(R.id.textview);
+           // textview = itemView.findViewById(R.id.textview);
             this.itemView = itemView;
             imageview = itemView.findViewById(R.id.imageview);
         }

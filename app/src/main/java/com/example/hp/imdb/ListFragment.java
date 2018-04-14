@@ -22,7 +22,6 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-
 /**
  * A simple {@link Fragment} subclass.
  */
@@ -69,7 +68,6 @@ public class ListFragment extends Fragment {
 
         recyclerView = row.findViewById(R.id.recyclerview);
          progressBar= row.findViewById(R.id.pg);
-
 
 
         Bundle bundle=getArguments();

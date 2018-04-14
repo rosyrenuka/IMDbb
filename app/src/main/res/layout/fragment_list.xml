@@ -1,6 +1,7 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="#303030"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.example.hp.imdb.ListFragment">
@@ -17,7 +18,7 @@
         android:layout_height="20dp"
         android:indeterminate="true"
         android:id="@+id/pg"
-        app:mpb_progressStyle="horizontal"
+        app:mpb_progressStyle="circular"
         style="@style/Widget.MaterialProgressBar.ProgressBar.Horizontal" />
 
     <android.support.v7.widget.RecyclerView

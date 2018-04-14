@@ -13,13 +13,25 @@
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity" />
         <activity android:name=".All_Movie">
+
+        </activity>
+        <activity android:name=".Detail_Movie" />
+        <activity android:name=".Person_cast" />
+        <activity android:name=".Grid_Images_Activity" />
+        <activity
+            android:name=".Navigation_Activity"
+            android:label="@string/title_activity_navigation_"
+            android:theme="@style/AppTheme.NoActionBar">
+
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+
         </activity>
-        <activity android:name=".Detail_Movie" />
     </application>
 
 </manifest>

@@ -20,13 +20,21 @@ import java.util.ArrayList;
 
 public class UserCastRecyclerAdapter extends RecyclerView.Adapter<UserCastRecyclerAdapter.UserCastViewHolder>{
 
+    interface OnItemClickListener{
+
+        public void onItemClick(long id);
+    }
+
+    OnItemClickListener listener;
+
 
     Context context;
     ArrayList<TopCast.cast> list;
 
-    public UserCastRecyclerAdapter(Context context, ArrayList<TopCast.cast> list) {
+    public UserCastRecyclerAdapter(Context context, ArrayList<TopCast.cast> list,OnItemClickListener listener) {
         this.context = context;
         this.list = list;
+        this.listener=listener;
     }
 
     @Override
@@ -40,9 +48,11 @@ public class UserCastRecyclerAdapter extends RecyclerView.Adapter<UserCastRecycl
     }
 
     @Override
-    public void onBindViewHolder(@NonNull UserCastViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final UserCastViewHolder holder, final int position) {
 
-        TopCast.cast castList =  list.get(position);
+        final TopCast.cast castList =  list.get(position);
+
+        final long castid=castList.getId();
 
         String path = castList.getCastImage();
 
@@ -54,8 +64,10 @@ public class UserCastRecyclerAdapter extends RecyclerView.Adapter<UserCastRecycl
             @Override
             public void onClick(View v) {
 
-                //Toast.makeText(context,"holder item clicked",Toast.LENGTH_SHORT).show();
+              //  Toast.makeText(context,"cast new acitivty detail should be opened",Toast.LENGTH_SHORT).show();
 
+               // int position = holder.getAdapterPosition();
+                listener.onItemClick(castid);
             }
         });
 

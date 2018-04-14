@@ -3,6 +3,7 @@ package com.example.hp.imdb;
 import android.app.ActionBar;
 import android.content.Context;
 import android.content.Intent;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -108,8 +109,16 @@ public class Detail_Movie extends AppCompatActivity {
         recyclerview.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false));
         recyclerview.addItemDecoration(new DividerItemDecoration(this , DividerItemDecoration.HORIZONTAL));
 
+        castRecyclerAdapter = new UserCastRecyclerAdapter(Detail_Movie.this, ListCast, new UserCastRecyclerAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(long castid) {
+                Toast.makeText(Detail_Movie.this,"call control inside detail activity not on adapter and position is"+castid+"",Toast.LENGTH_SHORT).show();
 
-        castRecyclerAdapter = new UserCastRecyclerAdapter(Detail_Movie.this,ListCast);
+                Intent intent1=new Intent(Detail_Movie.this,Person_cast.class);
+                intent1.putExtra("person_id",castid);
+                startActivity(intent1);
+            }
+        });
         castRecycler.setAdapter(castRecyclerAdapter);
         castRecycler.setItemAnimator(new DefaultItemAnimator());
         castRecycler.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false));
@@ -241,7 +250,7 @@ public class Detail_Movie extends AppCompatActivity {
                     {
                         ListCast.clear();
                         ListCast.addAll(castlist);
-                        Log.d("TAG",response.body().cast.get(2).getCharacter());
+                       // Log.d("TAG",response.body().cast.get(2).getCharacter());
                         castRecyclerAdapter.notifyDataSetChanged();
                         Toast.makeText(Detail_Movie.this, "CAST downloaded", Toast.LENGTH_SHORT).show();
                     }
